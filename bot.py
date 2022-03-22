@@ -14,15 +14,7 @@ app = Client(
     api_hash  = "2bd06ae25625234f0316b7a8e193bb6a"
     )
 
-
-with app:
-    app.join_chat("nsim_channel")
-
-
 @app.on_message(filters.channel)
 def my_handler(client, message):
     print(message)
-
-
-
 app.run()
