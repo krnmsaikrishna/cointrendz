@@ -44,7 +44,7 @@ def my_handler(client, message):
     data = json.dumps(data)
     req = requests.get(site_url+"spot&data="+data)
     print(req.text)
-  catch:
+  except:
     print("Error on Spot")
 
 
@@ -68,7 +68,7 @@ def my_handler(client, message):
     data = json.dumps(data)
     req = requests.get(site_url+"wall&data="+data)
     print(req.text)
-  catch:
+  except:
     print("Error on Wall")
 
 
@@ -88,7 +88,7 @@ def my_handler(client, message):
     data = json.dumps(data)
     req = requests.get(site_url+"pump&data="+data)
     print(req.text)
-  catch:
+  except:
     print("Error on Pump")
     
 app.run()
