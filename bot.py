@@ -8,7 +8,7 @@ from pyrogram.methods.messages import edit_inline_media
 
 #  bot_token = "5020987340:AAFRWHMCTiXZNMnOdFrtH1znJ-WGvc_uXaA"
 
-print("ok boss")
+print("Code Working")
 
 app = Client(
     "boss",
@@ -16,7 +16,9 @@ app = Client(
     api_hash  = "2bd06ae25625234f0316b7a8e193bb6a"
     )
 
-@app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == "nsim_channel"))
+channel_1 = "cointrendz_whalehunter" 
+
+@app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_1))
 def my_handler(client, message):
     print(message.text)
 app.run()
