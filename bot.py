@@ -20,5 +20,5 @@ channel_1 = "cointrendz_whalehunter"
 
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_1))
 def my_handler(client, message):
-    print(message.text)
+    print(message)
 app.run()
