@@ -16,7 +16,7 @@ app = Client(
     api_hash  = "2bd06ae25625234f0316b7a8e193bb6a"
     )
 
-@app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.username == "nsim_channel"))
+@app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == "nsim_channel"))
 def my_handler(client, message):
     print(message.text)
 app.run()
