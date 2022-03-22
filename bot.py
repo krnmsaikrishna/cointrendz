@@ -7,7 +7,7 @@ from pyrogram.methods.messages import edit_inline_media
 #from pyrogram.types import User, Message
 #from pyrogram.types import ChatPermissions
 
-#  bot_token = "5020987340:AAFRWHMCTiXZNMnOdFrtH1znJ-WGvc_uXaA"
+#bot_token = "5020987340:AAFRWHMCTiXZNMnOdFrtH1znJ-WGvc_uXaA"
 
 print("Code Working")
 
@@ -30,10 +30,9 @@ def _o(str,pos):
 
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_1))
 def my_handler(client, message):
-    
+  try:
     _t = message.text 
     _t = _t.splitlines()
-    
     data = {}
     data['coin'] = _o(_t[0],0).split('/')[0]
     data['pair'] = _o(_t[0],0).split('/')[1]
@@ -43,10 +42,10 @@ def my_handler(client, message):
     data['size'] = _o(_t[4],2)
     data['day'] = _o(_t[6],2)
     data = json.dumps(data)
-
     req = requests.get(site_url+"spot&data="+data)
     print(req.text)
-    
+  catch:
+    print("Error on Spot")
 
 
 
@@ -54,7 +53,7 @@ def my_handler(client, message):
 
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_2))
 def my_handler(client, message):
-    
+  try:
     _t = message.text 
     _t = _t.splitlines()
     
@@ -67,19 +66,18 @@ def my_handler(client, message):
     data['size'] = _o(_t[3],2)
     data['day'] = _o(_t[4],2)
     data = json.dumps(data)
-
     req = requests.get(site_url+"wall&data="+data)
     print(req.text)
-
+  catch:
+    print("Error on Wall")
 
 
 
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_3))
 def my_handler(client, message):
-    
+  try:
     _t = message.text 
     _t = _t.splitlines()
-    
     data = {}
     data['coin'] = _o(_t[0],2).split('/')[0]
     data['pair'] = _o(_t[0],2).split('/')[1]
@@ -88,9 +86,9 @@ def my_handler(client, message):
     data['vol'] = _o(_t[2],1)
     data['volup'] = _o(_t[2],3)
     data = json.dumps(data)
-
     req = requests.get(site_url+"pump&data="+data)
     print(req.text)
-    
+  catch:
+    print("Error on Pump")
     
 app.run()
