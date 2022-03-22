@@ -8,6 +8,8 @@ from pyrogram.methods.messages import edit_inline_media
 
 #  bot_token = "5020987340:AAFRWHMCTiXZNMnOdFrtH1znJ-WGvc_uXaA"
 
+print("ok boss")
+
 app = Client(
     "boss",
     api_id    = 8793184,
