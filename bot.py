@@ -9,7 +9,7 @@ from urllib import request
 from telethon import TelegramClient, events, utils
 from telethon.tl.functions.channels import JoinChannelRequest
 
-session = 'cointrendz'
+session = 'bot'
 api_id =  8793184
 api_hash = '2bd06ae25625234f0316b7a8e193bb6a'
 proxy = None
