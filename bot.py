@@ -21,7 +21,7 @@ channel_1 = "cointrendz_whalehunter"
 channel_2 = "cointrendz_wallmonitor"
 channel_3 = "cointrendz_pumpdetector"
 
-site_url = "https://mysgpa.me/coin/tel.php?type="
+site_url = "http://cointrendz.ml/bot.php?type="
 
 
 def _o(str,pos):
