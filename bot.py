@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 print("Code Working")
 
 app = Client(
-    "boss",
+    "bot",
     api_id    = 8793184,
     api_hash  = "2bd06ae25625234f0316b7a8e193bb6a"
     )
