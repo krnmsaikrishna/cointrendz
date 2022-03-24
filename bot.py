@@ -33,7 +33,7 @@ def my_handler(client, message):
     data['coin']  = _t[0].split(' ')[0]
     data['type']  = _t[1].split(' ')[2]
     data['volu']  = _t[2].split(' ')[0]
-    data['prch']  = _t[3].split(' ')[1:-1]
+    data['prch']  = (_t[3].split(' ')[3])[1:-1]
     data['price'] = ' '.join(_t[3].split(' ')[1:3])
     data['size']  = ' '.join(_t[4].split(' ')[2:4])
     data['24h']   = _t[6].split(':')[1]
