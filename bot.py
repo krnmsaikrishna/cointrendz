@@ -1,13 +1,7 @@
-import base64
+from datetime import datetime
 import json
-import re
 import requests 
 from pyrogram import Client, filters
-from pyrogram.methods.messages import edit_inline_media
-#from pyrogram.types import User, Message
-#from pyrogram.types import ChatPermissions
-
-#bot_token = "5020987340:AAFRWHMCTiXZNMnOdFrtH1znJ-WGvc_uXaA"
 
 print("Code Working")
 
@@ -34,13 +28,15 @@ def my_handler(client, message):
     _t = message.text 
     _t = _t.splitlines()
     data = {}
-    data['coin'] = _o(_t[0],0).split('/')[0]
-    data['pair'] = _o(_t[0],0).split('/')[1]
-    data['type'] = _o(_t[1],2)
-    data['volu'] = _o(_t[2],0)
-    data['price'] = _o(_t[3],1)
-    data['size'] = _o(_t[4],2)
-    data['day'] = _o(_t[6],2)
+    stam = datetime.fromtimestamp(message.date).strftime('%I:%M %p')
+    data['stam']  = stam
+    data['coin']  = _t[0].split(' ')[0]
+    data['type']  = _t[1].split(' ')[2]
+    data['volu']  = _t[2].split(' ')[0]
+    data['prch']  = _t[3].split(' ')[1:-1]
+    data['price'] = ' '.join(_t[3].split(' ')[1:3])
+    data['size']  = ' '.join(_t[4].split(' ')[2:4])
+    data['24h']   = _t[6].split(':')[1]
     data = json.dumps(data)
     req = requests.get(site_url+"spot&data="+data)
     print(req.text)
@@ -56,15 +52,15 @@ def my_handler(client, message):
   try:
     _t = message.text 
     _t = _t.splitlines()
-    
     data = {}
-    data['coin'] = _o(_t[0],0).split('/')[0]
-    data['pair'] = _o(_t[0],0).split('/')[1]
-    data['type'] = _o(_t[1],0)
-    data['volu'] = _o(_t[2],0)
-    data['price'] = _o(_t[2],3)
-    data['size'] = _o(_t[3],2)
-    data['day'] = _o(_t[4],2)
+    stam = datetime.fromtimestamp(message.date).strftime('%I:%M %p')
+    data['stam']  = stam
+    data['coin']  = _t[0].split(' ')[0]
+    data['type']  = _t[1].split(' ')[0]
+    data['vol']   = _t[2].split('@')[0]
+    data['price'] = _t[2].split('@')[1]
+    data['size']  = _t[3].split(':')[1]
+    data['24h']   = _t[4].split(':')[1]
     data = json.dumps(data)
     req = requests.get(site_url+"wall&data="+data)
     print(req.text)
@@ -79,12 +75,11 @@ def my_handler(client, message):
     _t = message.text 
     _t = _t.splitlines()
     data = {}
-    data['coin'] = _o(_t[0],2).split('/')[0]
-    data['pair'] = _o(_t[0],2).split('/')[1]
-    data['price'] = _o(_t[1],1)
-    data['change'] = _o(_t[1],3)
-    data['vol'] = _o(_t[2],1)
-    data['volup'] = _o(_t[2],3)
+    data['coin'] = _t[0].split(' ')[2]
+    data['price'] = ' '.join(_t[1].split(' ')[1:3])
+    data['prich'] = (_t[1].split(' ')[3])[1:-1]
+    data['volch'] = (_t[2].split(' ')[3])[1:-1]
+    data['vol'] =' '.join(_t[2].split(' ')[1:3])
     data = json.dumps(data)
     req = requests.get(site_url+"pump&data="+data)
     print(req.text)
