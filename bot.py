@@ -51,7 +51,7 @@ def my_handler(client, message):
     data['coin']  = (_t[0].split(' ')[0]).split('/')[0]
     data['pair']  = (_t[0].split(' ')[0]).split('/')[1]
     data['type']  = _t[1].split(' ')[0]
-    data['vol']   = _t[2].split(' ')[1]
+    data['vol']   = _t[2].split(' ')[0]
     data['price'] = _t[2].split(' ')[3]
     data['size']  = _t[3].split(' ')[2]
     data['24h']   = _t[4].split(' ')[2]
