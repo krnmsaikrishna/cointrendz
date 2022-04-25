@@ -15,7 +15,7 @@ channel_1 = "cointrendz_whalehunter"
 channel_2 = "cointrendz_wallmonitor"
 channel_3 = "cointrendz_pumpdetector"
 
-site_url = "http://cointrendz.ml/bot.php?type="
+site_url = "http://cointrendz.ml/crypto/bot.php?type="
 
 
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_1))
