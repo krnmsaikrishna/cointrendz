@@ -21,6 +21,7 @@ site_url = "http://cointrendz.ml/crypto/bot.php?type="
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_1))
 def my_handler(client, message):
   try:
+   if "Activity" in message.text :
     _t = message.text 
     _t = _t.splitlines()
     data = {}
@@ -34,7 +35,7 @@ def my_handler(client, message):
     data['24h']   = _t[6].split(' ')[2]
     data = json.dumps(data)
     req = requests.get(site_url+"spot&data="+data)
-    print(req.text)
+    #print(req.text)
   except Exception as e:
     print("Error :: Spot Module ::"+e.message)
 
@@ -45,6 +46,7 @@ def my_handler(client, message):
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_2))
 def my_handler(client, message):
   try:
+   if "Wall" in message.text :
     _t = message.text 
     _t = _t.splitlines()
     data = {}
@@ -57,7 +59,7 @@ def my_handler(client, message):
     data['24h']   = _t[4].split(' ')[2]
     data = json.dumps(data)
     req = requests.get(site_url+"wall&data="+data)
-    print(req.text)
+    #print(req.text)
   except Exception as e:
     print("Error :: Wall Module ::"+e.message)
 
@@ -66,6 +68,7 @@ def my_handler(client, message):
 @app.on_message(filters.channel  &  filters.create(lambda _,__,query: query.chat.username == channel_3))
 def my_handler(client, message):
   try:
+   if "Pumping" in message.text :
     _t = message.text 
     _t = _t.splitlines()
     data = {}
@@ -77,7 +80,7 @@ def my_handler(client, message):
     data['volch'] = (_t[2].split(' ')[3])[2:-2]
     data = json.dumps(data)
     req = requests.get(site_url+"pump&data="+data)
-    print(req.text)
+    #print(req.text)
   except Exception as e:
     print("Error :: Pump Module ::"+e.message)
     
